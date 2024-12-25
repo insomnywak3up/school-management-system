@@ -1,43 +1,31 @@
 package Project;
 
-public class Teacher {
-    private String name;
-    private int age;
+import Abstract.Employee;
+
+public class Teacher extends Employee {
     private String subject;
 
-    // constructor
     public Teacher(String name, int age, String subject) {
-        this.name = name;
-        this.age = age;
+        super(name, age, "Science Technology");
         this.subject = subject;
-    }
-
-    // getter
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     public String getSubject() {
         return subject;
     }
 
-    // Method to compare ages
-    public void isOlderThan(Teacher other) {
-        if (this.age > other.getAge()) {
-            System.out.println(this.name + " is older than " + other.getName());
-        } else if (this.age < other.getAge()) {
-            System.out.println(other.getName() + " is older than " + this.name);
-        } else {
-            System.out.println(this.name + " and " + other.getName() + " are the same age.");
-        }
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    // Method to display full teacher details
-    public String getTeacherFull() {
-        return this.name + " (" + this.age + " years old) - Subject: " + this.subject;
+    @Override
+    public void performDuties() {
+        System.out.println(getName() + " is teaching " + subject + ".");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nSubject: " + subject;
     }
 }
+
